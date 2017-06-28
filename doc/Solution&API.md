@@ -1,19 +1,3 @@
-## 架构
-![架构图](./arch.png)
-
-HPE 提供：
-
-- API 网关，功能：
-    + 生成 token；
-    + 校验 token；
-    + 将 request 路由到 业务API；
-
-浙江移动提供：
-
-- Client（客户端）；
-- Auth（鉴权模块）；
-- 业务APP；
-
 ## 参考实现
 https://github.com/hpe-microservice/api-gateway-demo
 
