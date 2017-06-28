@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    type: org.apache.tomcat.jdbc.pool.DataSource
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.10.128:3306/testdb?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: cjun
+    password: test
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
