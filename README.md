@@ -13,7 +13,7 @@
 - hpe-gateway: 测试用的 mock 网关；
 - eureka-server: 注册服务器；
 
-项目可在 Linux 或 Window 下编译和运行。
+项目基于 Spring Boot 和 Spring Cloud，可在 Linux 或 Window 下编译运行。
 
 ## 架构
 ![架构图](./doc/arch.png)
@@ -32,7 +32,7 @@ HPE 提供：
 - 业务APP；
 
 ## Auth（鉴权模块）和网关模块 API 说明
-https://github.com/hpe-microservice/api-gateway-demo/blob/master/doc/Solution%26API.md
+https://github.com/hpe-microservice/api-gateway-demo/blob/master/doc/API.md
 
 ## How to run
 1. **下载代码**：
