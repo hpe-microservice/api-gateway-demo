@@ -15,14 +15,15 @@ public class ClientMain {
 	public static void main(String[] args) {
 		SpringApplication.run(ClientMain.class, args);
 
-		if (args.length < 3) {
-			log.warning("Please input 3 arguments: appkey, username, password");
+		if (args.length < 4) {
+			log.warning("Please input 3 arguments: appkey, username, password, apiUrl");
 			return;
 		}
 
 		String appkey = args[0];
 		String username = args[1];
 		String password = args[2];
+		String apiUrl = args[3];
 
 		String token = getToken(appkey, username, password);
 		log.info("Get token: " + token);
@@ -31,15 +32,15 @@ public class ClientMain {
 			log.info("Get token failed for user: " + username);
 			return;
 		}
-			
-		String result = invoke(appkey, token, "http://localhost:8080/hello");
+
+		String result = invoke(appkey, token, apiUrl);
 		log.info("Invoke API: " + result);
 	}
 
 	private static String getToken(String appkey, String username, String password) {
 		RestTemplate rt = new RestTemplate();
-		String url = "http://localhost:8080?appkey=" + appkey + "&username=" + username + "&password=" + password;
-		Result r = rt.getForObject(url, Result.class);
+		String url = "http://localhost:8080/open/token?appkey=" + appkey + "&username=" + username + "&password=" + password;
+		TokenResult r = rt.getForObject(url, TokenResult.class);
 
 		return r.token;
 	}
@@ -56,7 +57,7 @@ public class ClientMain {
 	}
 }
 
-class Result {
+class TokenResult {
 	public String bizDesc;
 	public String token;
 }

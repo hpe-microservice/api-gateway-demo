@@ -12,6 +12,8 @@
         <module>eureka-server</module>
         <module>auth</module>
         <module>hello</module>
+        <module>client</module>
+        <module>hpe-gateway</module>
     </modules>
 
 </project>
