@@ -21,8 +21,8 @@ https://github.com/hpe-microservice/api-gateway-demo
 
 - auth: Auth（鉴权模块）参考实现；
 - client: Client 参考实现；
-- hello: 业务 API demo 参考实现；
-- open-gateway: 模拟网关；
+- hello: 一个简单的业务 API demo；
+- hpe-gateway: 测试用的 mock 网关；；
 - eureka-server: 注册服务器；
 
 ## 数据库（User DB）
@@ -128,7 +128,7 @@ public void apply(
 ```
 - **使用示例**：
 ``` shell
-# 返回 {"bizDesc":"success","token":"\"anKTQqBcrHapjDwmJGOrOTkKndjIapRx\""}
+# 返回 {"bizDesc":"Succeed","token":"lpWzspJWsrMXLyqahgGjeyrbuNaKZKmL"}
 $ curl -G --data "appkey=1007&username=Mike&password=abcd" \
 http://localhost:8080/open/token
 ```

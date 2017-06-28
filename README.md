@@ -9,13 +9,13 @@
 ## 项目内容
 - auth: Auth（鉴权模块）参考实现；
 - client: Client 参考实现；
-- hello: 一个最简单的业务 API demo；
+- hello: 一个简单的业务 API demo；
 - hpe-gateway: 测试用的 mock 网关；
 - eureka-server: 注册服务器；
 
 项目可在 Linux 或 Window 下编译和运行。
 
-Auth 和网关模块 API 接口可参考:
+## Auth（鉴权模块）和网关模块 API 说明
 https://github.com/hpe-microservice/api-gateway-demo/blob/master/doc/Solution%26API.md
 
 ## How to run
@@ -25,7 +25,7 @@ $ git clone git@github.com:hpe-microservice/api-gateway-demo.git
 ```
 2. 修改数据库 url、username、password（*./auth/src/main/resources/application.yml*）：
 ``` shell
-$ cd api-gateway-demo
+$ cd api-gateway-demo/src
 $ cat auth/src/main/resources/application.yml
 spring:
   datasource:
@@ -44,16 +44,18 @@ spring:
 ```
 3. 构建工程：
 ``` shell
-$  mvn clean package -DskipTests=true
+$ cd api-gateway-demo/src
+$ mvn clean package -DskipTests=true
 ```
 4. 运行服务器（Linux 下）：auth + hello + eureka-server + hpe-gateway
 ``` shell
-$ cd api-gateway-demo
+$ cd api-gateway-demo/src
 $ ./run.sh
 ```
 5. 运行client
 ``` shell
 # appkey=1007 username=Mike password=abcd apiURL=http://localhost:8080/hello
+$ cd api-gateway-demo/src
 $ java -jar client/target/client.jar 1007 Mike abcd http://localhost:8080/hello
 ```
 
