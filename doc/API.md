@@ -13,10 +13,10 @@ https://github.com/hpe-microservice/api-gateway-demo
 ### Auth table
 样例数据：
 
-| ID | APPKEY |  APPNAME   | USERNAME | PASSWORD |
-|----|--------|------------|----------|----------|
-|  1 |   1007 | poc        | Mike     | abcd     |
-|  2 |   1008 | helleworld | Joe      | 1234     |
+| ID | APPKEY | APPNAME | USERNAME | PASSWORD |
+|----|--------|---------|----------|----------|
+|  1 |   1007 | hello   | Mike     | abcd     |
+|  2 |   1008 | poc     | Joe      | 1234     |
 
 DDL:
 ``` sql
@@ -50,7 +50,7 @@ public boolean check(
 - **使用示例**：
 ``` shell
 # 返回：true
-$ curl -G --data "appkey=1007&username=Mike&password=abcd" http://localhost:8080/check
+$ curl -G --data "appkey=1007&username=Mike&password=abcd" http://localhost:8090/check
 ```
 
 ### /query-app/{appkey}
@@ -65,8 +65,8 @@ public String queryApp(@PathVariable int appkey)
 ```
 - **使用示例**：
 ``` shell
-# 返回："poc"
-$ curl -G http://localhost:8080/query-app/1007
+# 返回："hello"
+$ curl -G http://localhost:8090/query-app/1007
 ```
 
 ### /save
@@ -90,7 +90,7 @@ public Auth save(
 - **使用示例**：
 ``` shell
 $ curl -G --data "appkey=1009&appname=bookapi&username=Liu&password=xyz" \
-  http://localhost:8080/save
+  http://localhost:8090/save
 ```
 
 ## 网关 API

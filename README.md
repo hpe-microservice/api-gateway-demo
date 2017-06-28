@@ -79,7 +79,7 @@ client 先尝试从网关获取 token， 成功后通过网关访问网关后面
 
 **Note**:
 
-- 所有的 log 在目录 *api-gateway-demo/log* 下面；
+- 所有的 log 在目录 *api-gateway-demo/src/log* 下面；
 - auth 工程启动后，**会自动在 MySQL 数据库中创建 auth 表**（如 auth 表不存在）；
 
 **程序端口**:
