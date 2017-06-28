@@ -19,11 +19,11 @@
 https://github.com/hpe-microservice/api-gateway-demo/blob/master/doc/Solution%26API.md
 
 ## How to run
-1. 下载代码：
+1. **下载代码**：
 ``` shell
 $ git clone git@github.com:hpe-microservice/api-gateway-demo.git
 ```
-2. 修改数据库 url、username、password（*./auth/src/main/resources/application.yml*）：
+2. **修改数据库 url、username、password**（*src/auth/src/main/resources/application.yml*）：
 ``` shell
 $ cd api-gateway-demo/src
 $ cat auth/src/main/resources/application.yml
@@ -42,17 +42,17 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQL5Dialect
 ```
-3. 构建工程：
+3. **构建工程**：
 ``` shell
 $ cd api-gateway-demo/src
 $ mvn clean package -DskipTests=true
 ```
-4. 运行服务器（Linux 下）：auth + hello + eureka-server + hpe-gateway
+4. **运行服务器**：auth + hello + eureka-server + hpe-gateway
 ``` shell
 $ cd api-gateway-demo/src
 $ ./run.sh
 ```
-5. 运行client
+5. **运行 client**：
 ``` shell
 # appkey=1007 username=Mike password=abcd apiURL=http://localhost:8080/hello
 $ cd api-gateway-demo/src
@@ -64,9 +64,9 @@ client 先尝试从网关获取 token， 成功后通过网关访问网关后面
 **Note**:
 
 - 所有的 log 在目录 *api-gateway-demo/log* 下面；
-- auth 工程启动后，**会自动在连接的 MySQL 数据库中创建 auth 表**（如 auth 表不存在）；
+- auth 工程启动后，**会自动在 MySQL 数据库中创建 auth 表**（如 auth 表不存在）；
 
-**程序端口**
+**程序端口**:
 
 - auth：8090
 - hello：8091
