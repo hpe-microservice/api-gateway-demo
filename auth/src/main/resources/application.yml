@@ -2,9 +2,9 @@ spring:
   datasource:
     type: org.apache.tomcat.jdbc.pool.DataSource
     driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql://192.168.10.128:3306/testdb?useUnicode=true&characterEncoding=UTF-8&useSSL=false
-    username: cjun
-    password: test
+    url: jdbc:mysql://192.168.10.128:3306/zjmcc_db?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: zjmcc
+    password: password
   jpa:
     show-sql: true
     hibernate:
