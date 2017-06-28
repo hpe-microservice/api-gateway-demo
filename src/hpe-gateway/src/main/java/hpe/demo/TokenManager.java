@@ -15,10 +15,12 @@ public class TokenManager {
 		return appkey.equals(tokenMap.get(token));
 	}
 
-	public static synchronized String genToken(String appkey, String username, String password) {
-		return randomLetter(32);
+	public static synchronized String genToken(String appkey) {
+		String token = randomLetter(32);
+    tokenMap.put(token, appkey);
+    return token;
 	}
-	
+
     private static String randomLetter(int length) {
         String base = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
         Random random = new Random();

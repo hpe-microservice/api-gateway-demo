@@ -14,13 +14,13 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 public class Controller {
 	private static final Logger LOG = LoggerFactory.getLogger(Controller.class);
-	
+
 	@Bean
 	@LoadBalanced
 	public RestTemplate restTemplate() {
 		return new RestTemplate();
 	}
-	
+
 	@Autowired
 	private RestTemplate restTemplate;
 
@@ -34,7 +34,7 @@ public class Controller {
 			return r;
 		}
 		r.bizDesc = "Succeed";
-		r.token = TokenManager.genToken(appkey, username, password);
+		r.token = TokenManager.genToken(appkey);
 		return r;
 	}
 
