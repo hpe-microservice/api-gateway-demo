@@ -49,12 +49,12 @@ CREATE TABLE `auth` (
 ## Auth（鉴权模块）API
 ### /check
 - **URL**： `/check`
+- **功能**：根据传入的 appkey，username，password 检查该用户是否为合法用户，返回 true/false。
 - **参数**：
     + int appkey
     + String username
     + String password
 - **返回**：bool
-- **功能**：根据传入的 appkey，username，password 检查该用户是否为合法用户，返回 true/false。
 - **代码定义**：
 ``` java
 @RequestMapping("/check")
@@ -71,9 +71,9 @@ $ curl -G --data "appkey=1007&username=Mike&password=abcd" http://localhost:8080
 
 ### /query-app/{appkey}
 - **URL**：`/query-app/{appkey}`
+- **功能**：根据 appkey 获取对应的 appname。
 - **参数**：无
 - **返回**：String
-- **功能**：根据 appkey 获取对应的 appname。
 - **代码定义**：
 ``` java
 @RequestMapping("/query-app/{appkey}")
@@ -87,13 +87,13 @@ $ curl -G http://localhost:8080/query-app/1007
 
 ### /save
 - **URL**： `/save`
+- **功能**：添加新的 Auth 记录到数据库，传入的参数作为其字段值。
 - **参数**：
     + int appkey
     + String appname
     + String username
     + String password
 - **返回**：String
-- **功能**：添加新的 Auth 记录到数据库，传入的参数作为其字段值。
 - **代码定义**：
 ``` java
 @RequestMapping("/save")
@@ -112,12 +112,12 @@ $ curl -G --data "appkey=1009&appname=bookapi&username=Liu&password=xyz" \
 ## 网关 API
 ### /open/token
 - **URL**：`/open/token`
+- **功能**：根据 appkey、 username、 password 获取 token。
 - **参数**：
     + int appkey
     + String username
     + String password
 - **返回**：String
-- **功能**：根据 appkey、 username、 password 获取 token
 - **代码定义**：
 ``` java
 @RequestMapping(value = "/open/token")

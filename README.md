@@ -63,4 +63,5 @@ $ ./run.sh
 
 ## How to stop
 Window 下通过 **命令管理器** 结束 JVM 进程。
+
 Linux 下通过 `kill -9 <pid>` 结束 JVM 进程。
