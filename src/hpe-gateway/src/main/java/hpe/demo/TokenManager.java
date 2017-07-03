@@ -17,17 +17,17 @@ public class TokenManager {
 
 	public static synchronized String genToken(String appkey) {
 		String token = randomLetter(32);
-    tokenMap.put(token, appkey);
-    return token;
+		tokenMap.put(token, appkey);
+		return token;
 	}
 
-    private static String randomLetter(int length) {
-        String base = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        Random random = new Random();
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < length; i++) {
-            sb.append(base.charAt(random.nextInt(base.length())));
-        }
-        return sb.toString();
-    }
+	private static String randomLetter(int length) {
+		String base = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		Random random = new Random();
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < length; i++) {
+			sb.append(base.charAt(random.nextInt(base.length())));
+		}
+		return sb.toString();
+	}
 }

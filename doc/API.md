@@ -5,8 +5,9 @@ https://github.com/hpe-microservice/api-gateway-demo
 
 - auth: Auth（鉴权模块）参考实现；
 - client: Client 参考实现；
+- client-web: 基于 HTML 的 client 参考实现；
 - hello: 一个简单的业务 API demo；
-- hpe-gateway: 测试用的 mock 网关；；
+- hpe-gateway: 测试用的 mock 网关；
 - eureka-server: 注册服务器；
 
 ## 数据库（User DB）

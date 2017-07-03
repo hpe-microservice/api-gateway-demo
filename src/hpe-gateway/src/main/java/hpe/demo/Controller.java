@@ -33,8 +33,10 @@ public class Controller {
 			r.token = "";
 			return r;
 		}
+
 		r.bizDesc = "Succeed";
 		r.token = TokenManager.genToken(appkey);
+		LOG.info("Generate token: " + r.token);
 		return r;
 	}
 

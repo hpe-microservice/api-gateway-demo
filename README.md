@@ -9,6 +9,7 @@
 ## 项目内容
 - auth: Auth（鉴权模块）参考实现；
 - client: Client 参考实现；
+- client-web: 基于 HTML 的 client 参考实现；
 - hello: 一个简单的业务 API demo；
 - hpe-gateway: 测试用的 mock 网关；
 - eureka-server: 注册服务器；
@@ -25,7 +26,7 @@ HPE 提供：
     + 校验 token；
     + 将 request 路由到 业务API；
 
-浙江移动提供：
+客户提供：
 
 - Client（客户端）；
 - Auth（鉴权模块）；
@@ -68,14 +69,21 @@ $ mvn clean package -DskipTests=true
 $ cd api-gateway-demo/src
 $ ./run.sh
 ```
-5. **运行 client**：
+5. **运行 JAVA client**：
 ``` shell
 # appkey=1007 username=Mike password=abcd apiURL=http://localhost:8080/hello
 $ cd api-gateway-demo/src
 $ java -jar client/target/client.jar 1007 Mike abcd http://localhost:8080/hello
 ```
 
-client 先尝试从网关获取 token， 成功后通过网关访问网关后面的 hello 微服务，并打印微服务返回的结果。
+JAVA client 先尝试从网关获取 token， 成功后通过网关访问网关后面的 hello 微服务，并打印微服务返回的结果（返回 “你好，POC！”）。
+
+运行 web 版 client：
+
+- 直接用浏览器（Firefox）打开 src/client-web/login.html；
+- 填入 appkey、username、password，点击 `Login` 按钮登陆并获取 token；
+- 成功获取 token 后，点击 `Call API` 按钮调用 API；
+- 对话框弹出 “你好，POC！” 说明调用成功；
 
 **Note**:
 

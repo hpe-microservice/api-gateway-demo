@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>CheckBox Selection on DataGrid - jQuery EasyUI Demo</title>
+  <link rel="stylesheet" type="text/css" href="./libs/easyui/themes/bootstrap/easyui.css">
+  <link rel="stylesheet" type="text/css" href="./libs/easyui/themes/icon.css">
+  <link rel="stylesheet" type="text/css" href="./css/common.css">
+  <script type="text/javascript" src="./libs/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="./libs/easyui/jquery.easyui.min.js"></script>
+</head>
+
+<body>
+
+  <div style="margin:200px 0;"></div>
+  <center>
+    <div class="easyui-panel" title="Login" style="width:100%;max-width:400px;padding:30px 40px;">
+      <form id="ff" action="/dashview/login/signin" method="post">
+        <div style="margin-bottom:20px">
+          <input class="easyui-textbox" name="appkey" id="appkey" style="width:100%;" data-options="label:'Appkey:',required:false">
+        </div>
+        <div style="margin-bottom:20px">
+          <input class="easyui-textbox" name="username" id="username" style="width:100%;" data-options="label:'User Name:',required:false">
+        </div>
+        <div style="margin-bottom:20px">
+          <input type="password" class="easyui-textbox" name="password" id="password" style="width:100%" data-options="label:'Password:',required:false">
+        </div>
+        <div style="margin-bottom:20px">
+          <label>Token: </label><label id="token"></label>
+        </div>
+
+      </form>
+      <div style="text-align:center;padding:5px 0">
+        <a href="javascript:void(0)" class="easyui-linkbutton" onclick="login()" style="width:80px">Login</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearForm()" style="width:80px">Clear</a>
+      </div>
+      <div style="text-align:center;padding:5px 0">
+        <a href="javascript:void(0)" class="easyui-linkbutton" id="callAPIBtn" onclick="callAPI()" style="width:80px" data-options="disabled :true">Call API</a>
+      </div>
+    </div>
+  </center>
+  <script>
+    var loginUrl = "http://localhost:8080/open/token";
+    var apiURL = "http://localhost:8080/hello";
+    var appkey = ""
+    var token = "";
+    function login() {
+      appkey = $('#appkey').val();
+      var username = $('#username').val();
+      var password = $('#password').val();
+      if (username == '' || password == '') {
+        $.messager.alert('Info', "请输入Appkey、用户名、密码", 'info');
+        return
+      }
+
+      tempURL = loginUrl + "?appkey=" + appkey + "&username=" + username + "&password=" + password;
+      $.get(tempURL, function (result) {
+        token = result.token;
+        if (token == '')
+          alert("申请token失败, 用户名或密码不正确")
+        else {
+          $("#token").html(token);
+          $('#callAPIBtn').linkbutton('enable');
+        }
+      });
+    }
+
+    function clearForm() {
+      $('#ff').form('clear');
+      token = "";
+      $("#token").html("");
+      $('#callAPIBtn').linkbutton('disable');
+    }
+
+    function callAPI() {
+      var tokenTemp = token;
+      if (tokenTemp == '') {
+        $.messager.alert('Info', "token为空，请先Login", 'info');
+        return;
+      }
+
+      $.ajax({
+        type: "get",
+        url: apiURL,
+        headers: { "appkey": appkey, "token": tokenTemp },
+        success: function (data) {
+          alert(data);
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+          alert(XMLHttpRequest.status + " " + textStatus + ":" + XMLHttpRequest.responseText);
+        }
+      });
+    }
+  </script>
+
+</body>
+
+</html>

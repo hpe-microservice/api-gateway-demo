@@ -1,10 +1,10 @@
 package test;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.context.annotation.Bean;
-import org.springframework.http.converter.json.GsonHttpMessageConverter;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,10 +20,12 @@ public class HelloMain {
 
 @RestController
 class HelloController {
+	private static final Logger LOG = LoggerFactory.getLogger(HelloController.class);
 
     @RequestMapping("/")
     public String home() {
-        return "你好-POC";
+    	LOG.info("/");
+        return "你好-POC!";
     }
 
 }
