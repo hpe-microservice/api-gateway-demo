@@ -76,18 +76,20 @@ $ cd api-gateway-demo/src
 $ java -jar client/target/client.jar 1007 Mike abcd http://localhost:8080/hello
 ```
 
-JAVA client 先尝试从网关获取 token， 成功后通过网关访问网关后面的 hello 微服务，并打印微服务返回的结果（返回 “你好，POC！”）。
+JAVA client 先尝试从网关获取 token， 成功后通过网关访问网关后面的 hello 微服务，并打印微服务返回的结果（返回 “**你好，POC！**”）。
 
-运行 web 版 client：
+**运行 web 版 client**：
 
 - 直接用浏览器（Firefox）打开 src/client-web/login.html；
 - 填入 appkey、username、password，点击 `Login` 按钮登陆并获取 token；
 - 成功获取 token 后，点击 `Call API` 按钮调用 API；
-- 对话框弹出 “你好，POC！” 说明调用成功；
+- 对话框弹出 “**你好，POC！**” 说明调用成功；
+
+![Web Client](./doc/client-web.png)
 
 **Note**:
 
-- 所有的 log 在目录 *api-gateway-demo/src/log* 下面；
+- 所有服务器 log 保存在目录 *api-gateway-demo/src/log*；
 - auth 工程启动后，**会自动在 MySQL 数据库中创建 auth 表**（如 auth 表不存在）；
 
 **程序端口**:
