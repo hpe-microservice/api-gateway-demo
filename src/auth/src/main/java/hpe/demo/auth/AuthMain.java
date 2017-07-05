@@ -30,6 +30,9 @@ class ServiceInstanceRestController {
 	public boolean check(@RequestParam("appkey") int appkey, @RequestParam("username") String username,
 			@RequestParam("password") String password) {
 		Auth a = service.findByAppkeyAndUsername(appkey, username);
+		if (a == null) {
+			return false;
+		}
 		return a.getPassword().equals(password);
 	}
 
